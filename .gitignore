@@ -9,10 +9,13 @@ main/logs
 main/logs_20epoch
 
 main/logs_20epoch_V2
+main/logs_40epoch_V3
+main/logs_40epoch_V3080
 
 main/snapshots
 
 snapshots
-
+train.log
+train_V3.log
 
 
