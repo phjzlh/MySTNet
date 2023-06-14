@@ -2,6 +2,7 @@
 
 import argparse
 import os.path as osp
+import time
 
 from loguru import logger
 
@@ -74,4 +75,6 @@ if __name__ == '__main__':
     elif task == 'vos':
         testers = build_sat_tester(task_cfg)
     for tester in testers:
+        start = time.time()
         tester.test()
+        print("测试共消耗时间： {}秒", (time.time() - start))

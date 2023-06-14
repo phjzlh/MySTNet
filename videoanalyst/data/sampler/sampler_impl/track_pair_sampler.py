@@ -230,6 +230,7 @@ class TrackPairSampler(SamplerBase):
         idx1 = rng.choice(L)
         idx2_choices = list(range(idx1-max_diff, L)) + \
                     list(range(L+1, idx1+max_diff+1))
+        # idx2_choices = list(range(idx1 - max_diff, idx1 + max_diff))
         idx2_choices = list(set(idx2_choices).intersection(set(range(L))))
         idx2 = rng.choice(idx2_choices)
         return int(idx1), int(idx2)
