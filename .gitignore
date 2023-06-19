@@ -17,5 +17,8 @@ main/snapshots
 snapshots
 train.log
 train_V3.log
+models/fe240.pkl
+main/snapshots_5crop
+main/logs_5crop
 
 
