@@ -1,7 +1,7 @@
 test:
   track:
-    exp_name: &TEST_NAME "STNET_12thepoch"
-    exp_save: &TEST_SAVE "logs_40epoch_V3080"
+    exp_name: &TEST_NAME "STNET_myVal_5crop_18epoch"
+    exp_save: &TEST_SAVE "logs_5crop"
     model:
       backbone:
         name: "SNN3"
@@ -22,7 +22,7 @@ test:
       task_model:
         name: "SiamTrack"
         SiamTrack:
-          pretrain_model_path: G:\paperwithcode\CVPR2022_STNet\main\snapshots\STNET_40epochs_V3080\epoch-11.pkl
+          pretrain_model_path: G:\paperwithcode\CVPR2022_STNet\main\snapshots_5crop\STNET_20epochs_5crop\epoch-18.pkl
     pipeline:
       name: "STNetTracker"
       STNetTracker:

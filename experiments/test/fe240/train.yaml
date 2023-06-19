@@ -40,8 +40,8 @@ test:
         subsets: [ "val" ]
 train:
   track:
-    exp_name: &TRAIN_NAME "STNET_20epochs_V5"
-    exp_save: &TRAIN_SAVE "snapshots"
+    exp_name: &TRAIN_NAME "STNET_20epochs_5crop"
+    exp_save: &TRAIN_SAVE "snapshots_5crop"
     num_processes: 1
     model:
       backbone:
@@ -92,9 +92,9 @@ train:
       exp_name: *TRAIN_NAME
       exp_save: *TRAIN_SAVE
       num_epochs: &NUM_EPOCHS 20
-      minibatch: &MINIBATCH 16  # 64
+      minibatch: &MINIBATCH 8  # 64
       num_workers: 8
-      nr_image_per_epoch: &NR_IMAGE_PER_EPOCH 40000 #140469 # 400000
+      nr_image_per_epoch: &NR_IMAGE_PER_EPOCH 140469 # 400000
       pin_memory: false
       datapipeline:
         name: "RegularDatapipeline"
@@ -184,47 +184,47 @@ train:
             "max_epoch": 15
             }
           lr_multiplier:
-          - >
-            {
-            "name": "backbone",
-            "regex": "basemodel",
-            "ratio": 1
-            }
-          - >
-            {
-            "name": "other",
-            "regex": "^((?!basemodel).)*$",
-            "ratio": 1
-            }
+#          - >
+#            {
+#            "name": "backbone",
+#            "regex": "basemodel",
+#            "ratio": 1
+#            }
+#          - >
+#            {
+#            "name": "other",
+#            "regex": "^((?!basemodel).)*$",
+#            "ratio": 1
+#            }
       grad_modifier:
         name: "DynamicFreezer"
         DynamicFreezer:
           schedule:
-          - >
-            {
-            "name": "isConv",
-            "regex": "basemodel\\.conv.\\.conv.*",
-            "epoch": 0,
-            "freezed": false
-            }
-          - >
-            {
-            "name": "isConv5",
-            "regex": "basemodel\\.conv5\\.conv.*",
-            "epoch": 5,
-            "freezed": false
-            }
-          - >
-            {
-            "name": "isConv4",
-            "regex": "basemodel\\.conv4\\.conv.*",
-            "epoch": 10,
-            "freezed": false
-            }
-          - >
-            {
-            "name": "isConv3",
-            "regex": "basemodel\\.conv3\\.conv.*",
-            "epoch": 15,
-            "freezed": false
-            }
+#          - >
+#            {
+#            "name": "isConv",
+#            "regex": "basemodel\\.conv.\\.conv.*",
+#            "epoch": 0,
+#            "freezed": false
+#            }
+#          - >
+#            {
+#            "name": "isConv5",
+#            "regex": "basemodel\\.conv5\\.conv.*",
+#            "epoch": 5,
+#            "freezed": false
+#            }
+#          - >
+#            {
+#            "name": "isConv4",
+#            "regex": "basemodel\\.conv4\\.conv.*",
+#            "epoch": 10,
+#            "freezed": false
+#            }
+#          - >
+#            {
+#            "name": "isConv3",
+#            "regex": "basemodel\\.conv3\\.conv.*",
+#            "epoch": 15,
+#            "freezed": false
+#            }

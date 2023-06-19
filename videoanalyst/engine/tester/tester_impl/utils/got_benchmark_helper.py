@@ -117,15 +117,19 @@ class PipelineTracker(object):
             #     image = image.convert('RGB')
             image_pos = []
             image_neg = []
-            # for i in range(1, 6):
-            #     image_pos.append(cv2.imread(img_file.split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
-            #                    cv2.IMREAD_COLOR))
+            for i in range(1, 6):
+                # image_pos.append(cv2.imread(img_file.split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
+                #                cv2.IMREAD_COLOR))
+                #
+                # image_neg.append(cv2.imread(img_files_neg[f].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
+                #                 cv2.IMREAD_COLOR))
+                image_pos.append(cv2.imread(img_file.split('.')[0].replace('pos', 'pos_5') + '_{}.jpg'.format(i),
+                               cv2.IMREAD_COLOR))
+                image_neg.append(cv2.imread(img_files_neg[f].split('.')[0].replace('neg', 'neg_5') + '_{}.jpg'.format(i),
+                    cv2.IMREAD_COLOR))
+            # image_pos.append(cv2.imread(img_file, cv2.IMREAD_COLOR))
             #
-            #     image_neg.append(cv2.imread(img_files_neg[f].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
-            #                     cv2.IMREAD_COLOR))
-            image_pos.append(cv2.imread(img_file, cv2.IMREAD_COLOR))
-
-            image_neg.append(cv2.imread(img_files_neg[f], cv2.IMREAD_COLOR))
+            # image_neg.append(cv2.imread(img_files_neg[f], cv2.IMREAD_COLOR))
             start_time = time.time()
             if f == 0:
                 self.init(image_pos, image_neg, box, snn_state_first)

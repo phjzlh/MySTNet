@@ -137,7 +137,7 @@ class STNetTracker(PipelineBase):
 
         im_z_crop_pos = []
         im_z_crop_neg = []
-        for i in range(0, 1):
+        for i in range(0, 5):
             im_z_crop_pos_tem, _ = get_crop(
                 im_pos[i],
                 target_pos,
@@ -225,7 +225,7 @@ class STNetTracker(PipelineBase):
         phase_track = self._hyper_params['phase_track']
         im_x_crop_pos = []
         im_x_crop_neg = []
-        for i in range(1):
+        for i in range(5):
             im_x_crop_pos_tem, scale_x = get_crop(
                 im_x_pos[i],
                 target_pos,

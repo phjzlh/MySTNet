@@ -77,15 +77,27 @@ class TrackPairSampler(SamplerBase):
             else:
                 data1_pos, data1_neg, data2_pos, data2_neg = self._sample_track_pair()  # get image 1 pair
 
-            # for i in range(1,6):
-            #     tempos1.append(load_image(data1_pos["image_1"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
-            #     temneg1.append(load_image(data1_neg["image_2"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
-            #     tempos2.append(load_image(data2_pos["image_1"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
-            #     temneg2.append(load_image(data2_neg["image_2"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
-            tempos1.append(load_image(data1_pos["image_1"].split('.')[0] + '.jpg'))
-            temneg1.append(load_image(data1_neg["image_2"].split('.')[0] + '.jpg'))
-            tempos2.append(load_image(data2_pos["image_1"].split('.')[0] + '.jpg'))
-            temneg2.append(load_image(data2_neg["image_2"].split('.')[0] + '.jpg'))
+            for i in range(1,6):
+                # tempos1.append(load_image(data1_pos["image_1"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
+                # temneg1.append(load_image(data1_neg["image_2"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
+                # tempos2.append(load_image(data2_pos["image_1"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
+                # temneg2.append(load_image(data2_neg["image_2"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
+                tempos1.append(load_image(
+                    data1_pos["image_1"].split('.')[0].replace('pos', 'pos_5') + '_{}.jpg'.format(
+                        i)))
+                temneg1.append(load_image(
+                    data1_neg["image_2"].split('.')[0].replace('neg', 'neg_5') + '_{}.jpg'.format(
+                        i)))
+                tempos2.append(load_image(
+                    data2_pos["image_1"].split('.')[0].replace('pos', 'pos_5') + '_{}.jpg'.format(
+                        i)))
+                temneg2.append(load_image(
+                    data2_neg["image_2"].split('.')[0].replace('neg', 'neg_5') + '_{}.jpg'.format(
+                        i)))
+            # tempos1.append(load_image(data1_pos["image_1"].split('.')[0] + '.jpg'))
+            # temneg1.append(load_image(data1_neg["image_2"].split('.')[0] + '.jpg'))
+            # tempos2.append(load_image(data2_pos["image_1"].split('.')[0] + '.jpg'))
+            # temneg2.append(load_image(data2_neg["image_2"].split('.')[0] + '.jpg'))
             data1_pos["image"] = tempos1
             data1_neg["image"] = temneg1
             data2_pos["image"] = tempos2
@@ -228,9 +240,9 @@ class TrackPairSampler(SamplerBase):
         """
         rng = self._state["rng"]
         idx1 = rng.choice(L)
-        idx2_choices = list(range(idx1-max_diff, L)) + \
-                    list(range(L+1, idx1+max_diff+1))
-        # idx2_choices = list(range(idx1 - max_diff, idx1 + max_diff))
+        # idx2_choices = list(range(idx1-max_diff, L)) + \
+        #             list(range(L+1, idx1+max_diff+1))
+        idx2_choices = list(range(idx1 - max_diff, idx1 + max_diff))
         idx2_choices = list(set(idx2_choices).intersection(set(range(L))))
         idx2 = rng.choice(idx2_choices)
         return int(idx1), int(idx2)

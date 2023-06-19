@@ -549,8 +549,8 @@ class SwinTransformer(ModuleBase):
         self.num_features = num_features
 
 
-        # self.convert_3 = nn.Conv2d(3 * 5 * 2, 3, kernel_size=1, stride=1, padding=0)
-        self.convert_3 = nn.Conv2d(3 * 1 * 2, 3, kernel_size=1, stride=1, padding=0)
+        self.convert_3 = nn.Conv2d(3 * 5 * 2, 3, kernel_size=1, stride=1, padding=0)
+        # self.convert_3 = nn.Conv2d(3 * 1 * 2, 3, kernel_size=1, stride=1, padding=0)
         self.upsample = nn.Upsample(size=(pretrain_img_size, pretrain_img_size), mode='bilinear', align_corners=True)
         self.conv8 = nn.Conv2d(192, 256, kernel_size=3, stride=1, padding=0)
         self.bn = nn.BatchNorm2d(256)
@@ -610,12 +610,12 @@ class SwinTransformer(ModuleBase):
         # max_neg = torch.where(max_neg > img_pos[4], max_neg, img_pos[4])
 
         #将数据拆分成5份
-        # x = self.convert_3(torch.cat([img_pos[0], img_pos[1], img_pos[2], img_pos[3], img_pos[4], \
-        #                               img_neg[0], img_neg[1], img_neg[2], img_neg[3],
-        #                               img_neg[4]], dim=1))
+        x = self.convert_3(torch.cat([img_pos[0], img_pos[1], img_pos[2], img_pos[3], img_pos[4], \
+                                      img_neg[0], img_neg[1], img_neg[2], img_neg[3],
+                                      img_neg[4]], dim=1))
         # x = self.convert_3(torch.cat([max_pos, max_neg], dim=1))
 
-        x = self.convert_3(torch.cat([img_pos[0], img_neg[0]], dim=1))
+        # x = self.convert_3(torch.cat([img_pos[0], img_neg[0]], dim=1))
         x = self.upsample(x)
         """Forward function."""
         x = self.patch_embed(x)

@@ -139,7 +139,7 @@ def crop_track_pair(
                                               avg_chans=avg_chans,
                                               mask=mask_tmp)
     else:
-        for i in range(0, 1):
+        for i in range(0, 5):
             im_z_pos.append(get_subwindow_tracking(im_temp_pos[i],
                                       box_crop_temp[:2],
                                       z_size,
@@ -159,7 +159,7 @@ def crop_track_pair(
                                               avg_chans=avg_chans,
                                               mask=mask_curr)
     else:
-        for i in range(0, 1):
+        for i in range(0, 5):
             im_x_pos.append(get_subwindow_tracking(im_curr_pos[i],
                                       box_crop_curr[:2],
                                       x_size,

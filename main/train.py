@@ -37,7 +37,7 @@ def make_parser():
     parser.add_argument(
         '-r',
         '--resume',
-        default="",
+        default="latest",
         help=r"completed epoch's number, latest or one model path")
 
     return parser
