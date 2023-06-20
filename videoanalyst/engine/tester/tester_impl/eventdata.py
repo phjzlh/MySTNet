@@ -28,7 +28,7 @@ class EVENTTester(TesterBase):
     """
     extra_hyper_params = dict(
         device_num=1,
-        data_root="G:\OT_datasets\FE108_Event_tracking_dataset",
+        data_root="G:\OT_datasets\FE108\img_120_split",
         subsets=["val"],  # (val|test)
     )
 
