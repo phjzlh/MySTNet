@@ -83,16 +83,16 @@ class TrackPairSampler(SamplerBase):
                 # tempos2.append(load_image(data2_pos["image_1"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
                 # temneg2.append(load_image(data2_neg["image_2"].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i)))
                 tempos1.append(load_image(
-                    data1_pos["image_1"].split('.')[0].replace('pos', 'pos_5') + '_{}.jpg'.format(
+                    data1_pos["image_1"].split('.')[0].replace('pos', 'pos_5').replace("FE108_Event_tracking_dataset", "FE108_rate_5crop") + '_{}.jpg'.format(
                         i)))
                 temneg1.append(load_image(
-                    data1_neg["image_2"].split('.')[0].replace('neg', 'neg_5') + '_{}.jpg'.format(
+                    data1_neg["image_2"].split('.')[0].replace('neg', 'neg_5').replace("FE108_Event_tracking_dataset", "FE108_rate_5crop") + '_{}.jpg'.format(
                         i)))
                 tempos2.append(load_image(
-                    data2_pos["image_1"].split('.')[0].replace('pos', 'pos_5') + '_{}.jpg'.format(
+                    data2_pos["image_1"].split('.')[0].replace('pos', 'pos_5').replace("FE108_Event_tracking_dataset", "FE108_rate_5crop") + '_{}.jpg'.format(
                         i)))
                 temneg2.append(load_image(
-                    data2_neg["image_2"].split('.')[0].replace('neg', 'neg_5') + '_{}.jpg'.format(
+                    data2_neg["image_2"].split('.')[0].replace('neg', 'neg_5').replace("FE108_Event_tracking_dataset", "FE108_rate_5crop") + '_{}.jpg'.format(
                         i)))
             # tempos1.append(load_image(data1_pos["image_1"].split('.')[0] + '.jpg'))
             # temneg1.append(load_image(data1_neg["image_2"].split('.')[0] + '.jpg'))

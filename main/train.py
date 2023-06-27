@@ -26,6 +26,10 @@ cv2.setNumThreads(1)
 torch.backends.cudnn.benchmark = False
 torch.backends.cudnn.deterministic = True
 
+# import os
+#
+# os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
+
 
 def make_parser():
     parser = argparse.ArgumentParser(description='Test')

@@ -40,7 +40,7 @@ test:
         subsets: [ "val" ]
 train:
   track:
-    exp_name: &TRAIN_NAME "STNET_20epochs_5crop"
+    exp_name: &TRAIN_NAME "STNET_20epochs_rate_5crop"
     exp_save: &TRAIN_SAVE "snapshots_5crop"
     num_processes: 1
     model:
